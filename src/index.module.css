@@ -46,3 +46,7 @@ img {
 header {
   text-align: center;
 }
+
+figure {
+  margin: 0;
+}

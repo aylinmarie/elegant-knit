@@ -10,10 +10,10 @@
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  object-fit: cover;
+  gap: calc(var(--base-unit) * 5);
 
   text-align: center;
 }
