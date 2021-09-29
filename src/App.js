@@ -48,7 +48,10 @@ const App = () => {
              return (
               <figure key={item.favorited.name}>
                 <img src={item.favorited.first_photo.medium2_url} alt=""/>
-               <figcaption>{item.favorited.name} | Designer: {item.favorited.designer.name}</figcaption>
+               <figcaption>
+                 <p>{item.favorited.name}</p>
+                 <p className={stylesheet.designer}><span className="visuallyHidden">Designer: </span>{item.favorited.designer.name}</p>
+                 </figcaption>
               </figure>
             )
           })}

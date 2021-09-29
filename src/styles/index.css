@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import './reset.css';
 
 :root {
   --clay: #995F49;
@@ -47,6 +48,8 @@ header {
   text-align: center;
 }
 
-figure {
-  margin: 0;
+/* Utility Classes */
+
+.visuallyHidden {
+  display: none;
 }

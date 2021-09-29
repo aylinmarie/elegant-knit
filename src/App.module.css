@@ -1,12 +1,8 @@
-@import './index.module.css';
+@import './styles/index.css';
 
 .app {
   max-width: 1300px;
   margin: auto;
-}
-
-.visuallyHidden {
-  display: none;
 }
 
 .grid {
@@ -25,4 +21,8 @@
 .intro {
   margin: auto;
   text-align: center;
+}
+
+.designer {
+  font-size: 13px;
 }
