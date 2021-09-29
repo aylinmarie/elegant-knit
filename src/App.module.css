@@ -1,0 +1,28 @@
+@import './index.module.css';
+
+.app {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.visuallyHidden {
+  display: none;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-evenly;
+
+  text-align: center;
+}
+
+.grid img {
+  border: 1px solid var(--clay);
+}
+
+.intro {
+  margin: auto;
+  text-align: center;
+}

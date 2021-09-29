@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+:root {
+  --clay: #995F49;
+  --stone: #F5EFED;
+  --sand: #CCAFA4;
+  --graphite: #242723;
+  --base-unit: 4px;
+}
+
+body {
+  margin: 20px;
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: calc(var(--base-unit) * 4);
+  letter-spacing: .035em;
+  line-height: 1.7em;
+  color: var(--graphite);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Lora', serif;
+  letter-spacing: 0em;
+  text-transform: none;
+}
+
+p {
+  max-width: 70ch;
+}
+
+a {
+  color: var(--clay);
+}
+
+section {
+  margin-top: calc(var(--base-unit) * 20);
+}
+
+img {
+  width: 100%;
+}
+
+header {
+  text-align: center;
+}
