@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import stylesheet from './Gallery.module.css';
-import Select from './components/Select';
+import Checkbox from './components/Checkbox';
 
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
@@ -45,9 +45,6 @@ const Gallery = () => {
     }
   }
   const FILTERED_ITEMS = filterBy.length === 0 ? items : items.filter(item => filterBy.includes(item.favorited.designer.name));
-  console.log(FILTERED_ITEMS)
-  console.log(filterBy)
-
 
   // Get data
   useEffect(() => {
@@ -58,9 +55,8 @@ const Gallery = () => {
     <div className={stylesheet.wrapper}>
       <fieldset className={stylesheet.filter}>
         <legend>Creators</legend>
-          {/* <label><input type="checkbox" value='All' onChange={() => updateFilter('All')} /> <span>All</span></label> */}
           {CREATORS.map(creator => {
-             return <label key={creator}><input type="checkbox" value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/> <span>{creator}</span></label>
+             return <Checkbox key={creator} label={creator} value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/>
              })}
       </fieldset>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>

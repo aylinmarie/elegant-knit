@@ -50,7 +50,6 @@
 
 /* Filter */
 .filter legend {
-    text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
     margin-bottom: calc(var(--base-unit) * 5);
