@@ -7,6 +7,12 @@
     margin-top: calc(var(--base-unit) * 20);
   }
 
+  @media screen and (max-width: 600px) {
+    .wrapper {
+      display: block;
+    }
+  }
+
   /* Cards */  
   .card {
     padding: calc(var(--base-unit) * 3);
@@ -42,6 +48,9 @@
   }
 
 /* Filter */
+.filter {
+  margin-bottom: calc(var(--base-unit) * 5);
+}
 .filter legend {
     font-weight: bold;
     font-size: 20px;
