@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import stylesheet from './App.module.css';
+import Select from './components/Select';
 
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
@@ -54,13 +55,13 @@ const Gallery = () => {
   return items && (
     <div className={stylesheet.wrapper}>
       <div>
-        <h2>Filter</h2>
-        <select name="creators" value={filterBy} onChange={updateFilter}>
+        <h2>Creators</h2>
+        <Select name="creators" value={filterBy} onChange={updateFilter}>
           <option value="all">All</option>
           {CREATORS.map(creator => {
              return <option key={creator}>{creator}</option>
              })}
-        </select>
+        </Select>
       </div>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
       <div className={stylesheet.gallery}>
