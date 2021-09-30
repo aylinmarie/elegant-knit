@@ -7,9 +7,9 @@
 
 .wrapper {
   /* Update when sorting/filtering is complete */
-  /* display: grid;
+  display: grid;
   grid-template-columns: 250px 1fr;
-  gap: calc(var(--base-unit) * 7); */
+  gap: calc(var(--base-unit) * 7);
   margin-top: calc(var(--base-unit) * 20);
 }
 

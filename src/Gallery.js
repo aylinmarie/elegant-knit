@@ -9,7 +9,10 @@ const base = 'https://api.ravelry.com';
 
 const Gallery = () => {
   const [ items, setItems ] = useState([]); 
+  const [filterBy, setFilterBy ] = useState('all');
+  const DESIGNERS = [];
 
+  // Fetch Data
   async function getData(base, authUsername, authPassword, username) {
     const url = base + '/people/' + username + '/favorites/list.json';
     const headers = new Headers();
@@ -23,28 +26,45 @@ const Gallery = () => {
       }
       throw res;
     }).then( data => {
-      setItems(data.favorites)
+      setItems(data.favorites);
     }).catch(error => {
       console.log("Yikes - there is an error with loading your data:", error)
     })
   };
-  
+
+  // Set filter for creators
+  DESIGNERS.push(items.map(item => item.favorited.designer.name))
+  const CREATORS = [...new Set(DESIGNERS[0])];
+  const FILTERED_ITEMS = filterBy !== 'all' ? items.filter(item => item.favorited.designer.name === filterBy) : items;
+
+  const updateFilter = (e) => {
+    const selectedCreator = e.target.value;
+    if(selectedCreator === 'all') {
+      setFilterBy('all')
+    } else {
+      setFilterBy(selectedCreator)
+    }
+  }
+
+  // Get data
   useEffect(() => {
     getData(base, usernameKey, passwordKey, username);
   },[])
-  console.log(items)
 
   return items && (
     <div className={stylesheet.wrapper}>
-      {/* <aside>
+      <div>
         <h2>Filter</h2>
-        <ul>
-          <li>test</li>
-        </ul>
-      </aside> */}
+        <select name="creators" value={filterBy} onChange={updateFilter}>
+          <option value="all">All</option>
+          {CREATORS.map(creator => {
+             return <option key={creator}>{creator}</option>
+             })}
+        </select>
+      </div>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
       <div className={stylesheet.gallery}>
-        {items.map(item => {
+        {FILTERED_ITEMS.map(item => {
             return item.type === 'pattern' ? (
               <a key={item.favorited.name} 
                 href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
