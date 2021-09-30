@@ -73,7 +73,7 @@ const Gallery = () => {
                 target="_blank" 
                 rel="noreferrer"
                 className={stylesheet.link}>
-                <li className={stylesheet.card}>
+                <div className={stylesheet.card}>
                   <img src={item.favorited.first_photo.medium2_url} alt=""/>
                   <div>
                     <p>{item.favorited.name}</p>
@@ -82,7 +82,7 @@ const Gallery = () => {
                       {item.favorited.designer.name}
                     </p>
                   </div>
-                </li>
+                </div>
               </a>
             ) : null
           })}

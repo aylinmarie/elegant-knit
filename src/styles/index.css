@@ -42,7 +42,7 @@ img {
 
 header {
   text-align: center;
-   margin-bottom: calc(var(--base-unit) * 10);
+  margin-bottom: calc(var(--base-unit) * 10);
 }
 
 /* Utility Classes */
