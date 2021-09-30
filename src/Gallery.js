@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import stylesheet from './App.module.css';
+import stylesheet from './Gallery.module.css';
 import Select from './components/Select';
 
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
@@ -10,7 +10,7 @@ const base = 'https://api.ravelry.com';
 
 const Gallery = () => {
   const [ items, setItems ] = useState([]); 
-  const [filterBy, setFilterBy ] = useState('all');
+  const [filterBy, setFilterBy ] = useState([]);
   const DESIGNERS = [];
 
   // Fetch Data
@@ -36,16 +36,18 @@ const Gallery = () => {
   // Set filter for creators
   DESIGNERS.push(items.map(item => item.favorited.designer.name))
   const CREATORS = [...new Set(DESIGNERS[0])];
-  const FILTERED_ITEMS = filterBy !== 'all' ? items.filter(item => item.favorited.designer.name === filterBy) : items;
 
-  const updateFilter = (e) => {
-    const selectedCreator = e.target.value;
-    if(selectedCreator === 'all') {
-      setFilterBy('all')
+  const updateFilter = (item) => {
+    if(filterBy.includes(item)) {
+      setFilterBy((prevValues) => prevValues.filter((v) => v !== item));
     } else {
-      setFilterBy(selectedCreator)
+      setFilterBy((prevValues) => [...prevValues, item]);
     }
   }
+  const FILTERED_ITEMS = filterBy.length === 0 ? items : items.filter(item => filterBy.includes(item.favorited.designer.name));
+  console.log(FILTERED_ITEMS)
+  console.log(filterBy)
+
 
   // Get data
   useEffect(() => {
@@ -54,15 +56,13 @@ const Gallery = () => {
 
   return items && (
     <div className={stylesheet.wrapper}>
-      <div>
-        <h2>Creators</h2>
-        <Select name="creators" value={filterBy} onChange={updateFilter}>
-          <option value="all">All</option>
+      <fieldset className={stylesheet.filter}>
+        <legend>Creators</legend>
+          {/* <label><input type="checkbox" value='All' onChange={() => updateFilter('All')} /> <span>All</span></label> */}
           {CREATORS.map(creator => {
-             return <option key={creator}>{creator}</option>
+             return <label key={creator}><input type="checkbox" value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/> <span>{creator}</span></label>
              })}
-        </Select>
-      </div>
+      </fieldset>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
       <div className={stylesheet.gallery}>
         {FILTERED_ITEMS.map(item => {

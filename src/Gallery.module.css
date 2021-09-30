@@ -1,0 +1,60 @@
+@import './styles/index.css';
+
+.wrapper {
+    display: grid;
+    grid-template-columns: calc(var(--base-unit) * 50) 1fr;
+    gap: calc(var(--base-unit) * 7);
+    margin-top: calc(var(--base-unit) * 20);
+  }
+
+  /* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    object-fit: cover;
+    gap: calc(var(--base-unit) * 5);
+  
+    text-align: center;
+  }
+  
+  .card {
+    list-style-type: none;
+    position: relative;
+    border: 1px solid var(--clay);
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+    transition: outline-color 0.2s ease;
+  }
+  
+  .card:focus,
+  .card:hover {
+    outline-color: var(--clay);
+  }
+  
+  .card:hover img {
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .card:hover img {
+    opacity: .8;
+  }
+  
+  .link {
+    text-decoration: none;
+  }
+
+  .designer {
+    font-size: 13px;
+    color: var(--graphite);
+  }
+
+/* Filter */
+.filter legend {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: calc(var(--base-unit) * 5);
+  }
+  .filter label {
+    display: block;
+  }
