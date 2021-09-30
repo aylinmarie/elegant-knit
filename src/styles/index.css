@@ -36,16 +36,13 @@ a {
   color: var(--clay);
 }
 
-section {
-  margin-top: calc(var(--base-unit) * 20);
-}
-
 img {
   width: 100%;
 }
 
 header {
   text-align: center;
+   margin-bottom: calc(var(--base-unit) * 10);
 }
 
 /* Utility Classes */
