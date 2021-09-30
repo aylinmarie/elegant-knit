@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
 
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
 const username = process.env.REACT_APP_RAVELRY_USERNAME;
@@ -60,8 +62,11 @@ const Gallery = () => {
              })}
       </fieldset>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
-      <div className={stylesheet.gallery}>
-        {FILTERED_ITEMS.map(item => {
+      <ResponsiveMasonry
+        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+      >
+        <Masonry gutter="24px">
+          {FILTERED_ITEMS.map(item => {
             return item.type === 'pattern' ? (
               <a key={item.favorited.name} 
                 href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
@@ -79,9 +84,10 @@ const Gallery = () => {
                   </div>
                 </li>
               </a>
-          ) : null
-        })}
-      </div>
+            ) : null
+          })}
+        </Masonry>
+      </ResponsiveMasonry>
     </div>
   );
 }

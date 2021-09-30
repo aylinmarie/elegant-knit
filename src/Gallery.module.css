@@ -7,17 +7,10 @@
     margin-top: calc(var(--base-unit) * 20);
   }
 
-  /* Gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    object-fit: cover;
-    gap: calc(var(--base-unit) * 5);
-  
-    text-align: center;
-  }
-  
+  /* Cards */  
   .card {
+    padding: calc(var(--base-unit) * 3);
+    text-align: center;
     list-style-type: none;
     position: relative;
     border: 1px solid var(--clay);
