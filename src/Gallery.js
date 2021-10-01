@@ -18,7 +18,7 @@ const Gallery = () => {
   // Fetch Data
   async function getData(base, authUsername, authPassword, username) {
     const url = base + '/people/' + username + '/favorites/list.json';
-    const headers = new Headers();
+    const headers = new Headers({'Content-Type': 'application/json'});
     // This is the HTTP header that you need add in order to access api.ravelry.com with a read only API key
     // `btoa` will base 64 encode a string: https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
     headers.append('Authorization', 'Basic ' + btoa(authUsername + ":" + authPassword));
