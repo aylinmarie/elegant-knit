@@ -17,6 +17,7 @@ body {
   letter-spacing: .035em;
   line-height: 1.7em;
   color: var(--graphite);
+  background-color: var(--stone);
 }
 
 h1,
@@ -40,9 +41,9 @@ img {
 }
 
 header {
-  padding: calc(var(--base-unit) * 5);
-  margin-bottom: calc(var(--base-unit) * 10);
-  border-bottom: 1px solid var(--graphite);
+  padding: calc(var(--base-unit) * 8);
+  margin-bottom: calc(var(--base-unit) * 5);
+  text-align: center;
 }
 
 header h1 {
