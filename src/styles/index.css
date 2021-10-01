@@ -10,7 +10,6 @@
 }
 
 body {
-  margin: 20px;
   font-family: 'Lora', serif;
   font-weight: 400;
   font-style: normal;
@@ -41,12 +40,17 @@ img {
 }
 
 header {
-  text-align: center;
+  padding: calc(var(--base-unit) * 5);
   margin-bottom: calc(var(--base-unit) * 10);
+  border-bottom: 1px solid var(--graphite);
+}
+
+header h1 {
+  max-width: 1300px;
+  margin: auto;
 }
 
 /* Utility Classes */
-
 .visuallyHidden {
   display: none;
 }

@@ -3,6 +3,7 @@
 .app {
   max-width: 1300px;
   margin: auto;
+  padding: calc(var(--base-unit) * 10);
 }
 
 .intro {
