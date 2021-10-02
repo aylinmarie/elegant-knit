@@ -7,7 +7,7 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
 const username = 'aylinmarie';
-const base = 'https://api.ravelry.com';
+const base = process.env.NODE_ENV === 'development' ? 'https://api.ravelry.com' : 'https://cors-anywhere.herokuapp.com/https://api.ravelry.com';
 
 
 const Gallery = () => {
