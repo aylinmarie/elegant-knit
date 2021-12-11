@@ -6,12 +6,6 @@ import Checkbox from './components/Checkbox';
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
-const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
-const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
-const username = 'aylinmarie';
-const base = 'https://api.ravelry.com';
-const url = base + '/people/' + username + '/favorites/list.json';
-
 const Gallery = () => {
   const [ items, setItems ] = useState([]); 
   const [ filterBy, setFilterBy ] = useState([]);
@@ -34,16 +28,11 @@ const Gallery = () => {
 
   // Fetch data
   useEffect(() => {
-    axios.get(url, {
-      auth: {
-        username: usernameKey,
-        password: passwordKey
-      }
-    }).then((response) => {
-      setItems(response.data.favorites);
+    axios.get("/data").then((response, error) => {
+      setItems(response.data.favorites)
     }).catch(error => {
-      setError("Looks like we ran into a snag trying to retrieve the patterns.")
-    })
+      setError(error);
+    });
   }, []);
 
   // If data cannot be retrieved, return error message
