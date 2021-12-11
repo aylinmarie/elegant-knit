@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import axios from "axios";
+
 import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
 
@@ -8,32 +10,14 @@ const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
 const username = 'aylinmarie';
 const base = 'https://api.ravelry.com';
-
+const url = base + '/people/' + username + '/favorites/list.json';
 
 const Gallery = () => {
   const [ items, setItems ] = useState([]); 
-  const [filterBy, setFilterBy ] = useState([]);
+  const [ filterBy, setFilterBy ] = useState([]);
+  const [ error, setError ] = useState(null);
+
   const DESIGNERS = [];
-
-  // Fetch Data
-  async function getData(base, authUsername, authPassword, username) {
-    const url = base + '/people/' + username + '/favorites/list.json';
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': 'Basic '+btoa(authUsername + ":" + authPassword), 
-    });
-
-    fetch(url, { method: 'GET', headers: headers }).then(res => {
-      if(res.ok) {
-        return res.json();
-      }
-      throw res;
-    }).then( data => {
-      setItems(data.favorites);
-    }).catch(error => {
-      console.log("Yikes - there is an error with loading your data:", error)
-    })
-  };
 
   // Set filter for creators
   DESIGNERS.push(items.map(item => item.favorited.designer.name))
@@ -48,18 +32,31 @@ const Gallery = () => {
   }
   const FILTERED_ITEMS = filterBy.length === 0 ? items : items.filter(item => filterBy.includes(item.favorited.designer.name));
 
-  // Get data
+  // Fetch data
   useEffect(() => {
-    getData(base, usernameKey, passwordKey, username);
-  },[])
+    axios.get(url, {
+      auth: {
+        username: usernameKey,
+        password: passwordKey
+      }
+    }).then((response) => {
+      setItems(response.data.favorites);
+    }).catch(error => {
+      setError("Looks like we ran into a snag trying to retrieve the patterns.")
+    })
+  }, []);
 
+  // If data cannot be retrieved, return error message
+  if (error) { return error } 
+
+  // Return patterns
   return items && (
     <div className={stylesheet.wrapper}>
       <fieldset className={stylesheet.filter}>
         <legend>Creators</legend>
           {CREATORS.map(creator => {
-             return <Checkbox key={creator} label={creator} value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/>
-             })}
+            return <Checkbox key={creator} label={creator} value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/>
+            })}
       </fieldset>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
       <ResponsiveMasonry
@@ -89,7 +86,7 @@ const Gallery = () => {
         </Masonry>
       </ResponsiveMasonry>
     </div>
-  );
+  )
 }
 
 export default Gallery;
