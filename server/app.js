@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 5000; 
-const cors = require("cors");
 
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
