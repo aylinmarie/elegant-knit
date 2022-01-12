@@ -10,7 +10,6 @@ const Gallery = () => {
   const [ items, setItems ] = useState([]); 
   const [ filterBy, setFilterBy ] = useState([]);
   const [ error, setError ] = useState(null);
-
   const DESIGNERS = [];
 
   // Set filter for creators
