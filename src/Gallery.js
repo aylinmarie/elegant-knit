@@ -52,7 +52,7 @@ const Gallery = () => {
       >
         <Masonry gutter="24px">
           {FILTERED_ITEMS.map(item => {
-            return item.type === 'pattern' ? (
+            return item.type === 'pattern' && (
               <a key={item.favorited.name} 
                 href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
                 target="_blank" 
@@ -69,7 +69,7 @@ const Gallery = () => {
                   </div>
                 </div>
               </a>
-            ) : null
+            )
           })}
         </Masonry>
       </ResponsiveMasonry>
