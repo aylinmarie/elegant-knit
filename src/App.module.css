@@ -1,0 +1,12 @@
+@import './styles/index.css';
+
+.app {
+  max-width: 1300px;
+  margin: auto;
+  padding: calc(var(--base-unit) * 10);
+}
+
+.intro {
+  margin: auto;
+  text-align: center;
+}
