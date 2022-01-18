@@ -10,10 +10,11 @@ const Gallery = () => {
   const [ items, setItems ] = useState([]); 
   const [ filterBy, setFilterBy ] = useState([]);
   const [ error, setError ] = useState(null);
-  const DESIGNERS = [];
-
+  let DESIGNERS = []
+  
   // Set filter for creators
-  DESIGNERS.push(items.map(item => item.favorited.designer.name))
+  items ? DESIGNERS.push(items.map(item => item.favorited.designer.name)) : DESIGNERS = []
+
   const CREATORS = [...new Set(DESIGNERS[0])];
 
   const updateFilter = (item) => {
