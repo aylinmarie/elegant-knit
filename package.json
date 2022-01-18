@@ -1,8 +1,7 @@
 {
   "name": "elegant-knits",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "private": true,
-  "author": "Aylin Marie",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -38,8 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.7"
   }
 }
