@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
+import { capitalize } from './utility/capitalize';
 import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
 
@@ -17,13 +18,23 @@ const Gallery = () => {
   const [ items, setItems ] = useState([]); 
   const [ filterBy, setFilterBy ] = useState([]);
   const [ error, setError ] = useState(null);
-  let DESIGNERS = []
-  
-  // Set filter for creators
-  items ? DESIGNERS.push(items.map(item => item.favorited.designer.name)) : DESIGNERS = []
+  let DESIGNERS = [];
+  let TYPE = [];
 
+
+  // Set filter for creators
+  if(items) {
+    DESIGNERS.push(items.map(item => item.favorited.designer.name))
+  }
   const CREATORS = [...new Set(DESIGNERS[0])];
 
+  // Set filter for types
+  if(items) {
+    TYPE.push(items.map(item => item.tag_list))
+  }
+  const TYPES = [...new Set(TYPE[0])];
+
+  // Filter patterns
   const updateFilter = (item) => {
     if(filterBy.includes(item)) {
       setFilterBy((prevValues) => prevValues.filter((v) => v !== item));
@@ -31,7 +42,7 @@ const Gallery = () => {
       setFilterBy((prevValues) => [...prevValues, item]);
     }
   }
-  const FILTERED_ITEMS = filterBy.length === 0 ? items : items.filter(item => filterBy.includes(item.favorited.designer.name));
+  const FILTERED_ITEMS = filterBy.length === 0 ? items : items.filter(item => filterBy.includes(item.favorited.designer.name) || filterBy.includes(item.tag_list));
 
   // Fetch data
   useEffect(() => {
@@ -47,19 +58,29 @@ const Gallery = () => {
     });
   }, []);
 
+
   // If data cannot be retrieved, return error message
   if (error) { return error } 
 
   // Return patterns
   return items && (
     <div className={stylesheet.wrapper}>
-      <fieldset className={stylesheet.filter}>
-        <legend>Creators</legend>
-          {CREATORS.map(creator => {
-            return <Checkbox key={creator} label={creator} value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/>
-            })}
-      </fieldset>
+      <div>
+        <fieldset className={stylesheet.filter}>
+          <legend>Creators</legend>
+            {CREATORS.map(creator => {
+              return <Checkbox key={creator} label={capitalize(creator)} value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/>
+              })}
+        </fieldset>
+        <fieldset className={stylesheet.filter}>
+          <legend>Type</legend>
+            {TYPES.map(type => {
+              return type && <Checkbox key={type} label={capitalize(type)} value={filterBy.includes(type)} onChange={() => updateFilter(type)}/>
+              })}
+        </fieldset>
+      </div>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
+      
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
       >
