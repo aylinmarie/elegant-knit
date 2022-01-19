@@ -3,10 +3,29 @@
 .app {
   max-width: 1300px;
   margin: auto;
-  padding: calc(var(--base-unit) * 10);
+  padding: 0 calc(var(--base-unit) * 10);
 }
 
 .intro {
   margin: auto;
   text-align: center;
+}
+
+.footer {
+  max-width: 1300px;
+  margin: auto;
+  padding: 1rem;
+  border-top: 1px solid var(--sand);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--base-unit) * 5);
+    padding: 0;
 }

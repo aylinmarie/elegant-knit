@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: calc(var(--base-unit) * 50) 1fr;
   gap: calc(var(--base-unit) * 7);
-  margin-top: calc(var(--base-unit) * 20);
+  margin: calc(var(--base-unit) * 20) 0;
 }
 
 @media screen and (max-width: 600px) {
