@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 
 import { capitalize } from './utility/capitalize';
+import { sortAlphabetically } from './utility/sortAlphabetically';
 import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
 
@@ -26,13 +27,13 @@ const Gallery = () => {
   if(items) {
     DESIGNERS.push(items.map(item => item.favorited.designer.name))
   }
-  const CREATORS = [...new Set(DESIGNERS[0])];
+  const CREATORS = sortAlphabetically([...new Set(DESIGNERS[0])]);
 
   // Set filter for types
   if(items) {
     TYPE.push(items.map(item => item.tag_list))
   }
-  const TYPES = [...new Set(TYPE[0])];
+  const TYPES = sortAlphabetically([...new Set(TYPE[0])]);
 
   // Filter patterns
   const updateFilter = (item) => {
@@ -42,7 +43,9 @@ const Gallery = () => {
       setFilterBy((prevValues) => [...prevValues, item]);
     }
   }
-  const FILTERED_ITEMS = filterBy.length === 0 ? items : items.filter(item => filterBy.includes(item.favorited.designer.name) || filterBy.includes(item.tag_list));
+
+  // TO-DO: Refactor to be an AND conditional
+  const FILTERED_ITEMS = filterBy.length > 0 ? items.filter(item => filterBy.includes(item.favorited.designer.name) || filterBy.includes(item.tag_list)) : items;
 
   // Fetch data
   useEffect(() => {
