@@ -1,9 +1,13 @@
 import React from 'react';
 import stylesheet from './App.module.css';
 import Gallery from './Gallery';
+import ReactGA from 'react-ga';
 
 const App = () => {
-
+  const TRACKING_ID = "UA-66263407-2";
+  ReactGA.initialize(TRACKING_ID);
+  ReactGA.pageview(window.location.pathname + window.location.search);
+  
   const LINKS = [
     {
       name: "Aylin Marie",
