@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
+import { Pagination } from '@mui/material';
+
 import { capitalize } from './utility/capitalize';
 import { sortAlphabetically } from './utility/sortAlphabetically';
 import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
+import usePagination from './components/Pagination';
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
@@ -21,7 +24,6 @@ const Gallery = () => {
   const [ error, setError ] = useState(null);
   let DESIGNERS = [];
   let TYPE = [];
-
 
   // Set filter for creators
   if(items) {
@@ -45,7 +47,19 @@ const Gallery = () => {
   }
 
   // TO-DO: Refactor to be an AND conditional
-  const FILTERED_ITEMS = filterBy.length > 0 ? items.filter(item => filterBy.includes(item.favorited.designer.name) || filterBy.includes(item.tag_list)) : items;
+  let FILTERED_ITEMS = filterBy.length > 0 ? items.filter(item => filterBy.includes(item.favorited.designer.name) || filterBy.includes(item.tag_list)) : items;
+
+  // Pagination
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 12;
+
+  const count = Math.ceil(FILTERED_ITEMS.length / PER_PAGE);
+  const _DATA = usePagination(FILTERED_ITEMS, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
 
   // Fetch data
   useEffect(() => {
@@ -60,7 +74,6 @@ const Gallery = () => {
       setError(error);
     });
   }, []);
-
 
   // If data cannot be retrieved, return error message
   if (error) { return error } 
@@ -88,7 +101,7 @@ const Gallery = () => {
         columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
       >
         <Masonry gutter="24px">
-          {FILTERED_ITEMS.map(item => {
+          {_DATA.currentData().map(item => {
             return item.type === 'pattern' && (
               <a key={item.favorited.name} 
                 href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
@@ -110,6 +123,13 @@ const Gallery = () => {
           })}
         </Masonry>
       </ResponsiveMasonry>
+
+      <Pagination 
+        count={count} 
+        variant="outlined"
+        onChange={handleChange}
+        page={page} />
+
     </div>
   )
 }
