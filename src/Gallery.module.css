@@ -2,7 +2,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: calc(var(--base-unit) * 50) 1fr;
+  grid-template-columns: calc(var(--base-unit) * 60) 1fr;
   gap: calc(var(--base-unit) * 7);
   margin: calc(var(--base-unit) * 20) 0;
 }

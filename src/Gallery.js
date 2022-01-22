@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
-import { Pagination, Stack } from '@mui/material';
+import { Pagination, Stack, Checkbox, FormControlLabel } from '@mui/material';
 import { Masonry } from '@mui/lab';
 
 import { capitalize } from './utility/capitalize';
 import { sortAlphabetically } from './utility/sortAlphabetically';
 import stylesheet from './Gallery.module.css';
-import Checkbox from './components/Checkbox';
 import usePagination from './components/Pagination/usePagination';
 
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
@@ -83,13 +82,23 @@ const Gallery = () => {
         <fieldset className={stylesheet.filter}>
           <legend>Creators</legend>
             {CREATORS.map(creator => {
-              return <Checkbox key={creator} label={capitalize(creator)} value={filterBy.includes(creator)} onChange={() => updateFilter(creator)}/>
+              return <FormControlLabel key={creator} label={capitalize(creator)} control={
+                      <Checkbox 
+                        size="small"
+                        label={capitalize(creator)} 
+                        value={filterBy.includes(creator)} 
+                        onChange={() => updateFilter(creator)}/>} />
+
               })}
         </fieldset>
         <fieldset className={stylesheet.filter}>
           <legend>Type</legend>
             {TYPES.map(type => {
-              return type && <Checkbox key={type} label={capitalize(type)} value={filterBy.includes(type)} onChange={() => updateFilter(type)}/>
+              return type && <FormControlLabel key={type} label={capitalize(type)} control={
+                              <Checkbox 
+                                size="small"
+                                value={filterBy.includes(type)} 
+                                onChange={() => updateFilter(type)}/>} />
               })}
         </fieldset>
       </div>

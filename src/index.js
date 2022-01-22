@@ -4,10 +4,20 @@ import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Lora, serif',
+  },
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
