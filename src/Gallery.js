@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 
 import { Pagination, Stack } from '@mui/material';
+import { Masonry } from '@mui/lab';
 
 import { capitalize } from './utility/capitalize';
 import { sortAlphabetically } from './utility/sortAlphabetically';
@@ -9,14 +10,11 @@ import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
 import usePagination from './components/Pagination/usePagination';
 
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
 const username = 'aylinmarie';
 const base = 'https://api.ravelry.com';
 const url = base + '/people/' + username + '/favorites/list.json';
-
 
 const Gallery = () => {
   const [ items, setItems ] = useState([]); 
@@ -98,32 +96,28 @@ const Gallery = () => {
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
       
       <Stack spacing={6}>
-        <ResponsiveMasonry
-          columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
-        >
-          <Masonry gutter="24px">
-            {_DATA.currentData().map(item => {
-              return item.type === 'pattern' && (
-                <a key={item.favorited.name} 
-                  href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
-                  target="_blank" 
-                  rel="noreferrer"
-                  className={stylesheet.link}>
-                  <div className={stylesheet.card}>
-                    <img src={item.favorited.first_photo.medium2_url} alt=""/>
-                    <div>
-                      <p>{item.favorited.name}</p>
-                      <p className={stylesheet.designer}>
-                        <span className="visuallyHidden">Designer: </span>
-                        {item.favorited.designer.name}
-                      </p>
-                    </div>
+        <Masonry columns={3} spacing={2}>
+          {_DATA.currentData().map(item => {
+            return item.type === 'pattern' && (
+              <a key={item.favorited.name} 
+                href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
+                target="_blank" 
+                rel="noreferrer"
+                className={stylesheet.link}>
+                <div className={stylesheet.card}>
+                  <img src={item.favorited.first_photo.medium2_url} alt=""/>
+                  <div>
+                    <p>{item.favorited.name}</p>
+                    <p className={stylesheet.designer}>
+                      <span className="visuallyHidden">Designer: </span>
+                      {item.favorited.designer.name}
+                    </p>
                   </div>
-                </a>
-              )
-            })}
-          </Masonry>
-        </ResponsiveMasonry>
+                </div>
+              </a>
+            )
+          })}
+        </Masonry>
         <Pagination 
           className={stylesheet.pagination}
           count={count} 
