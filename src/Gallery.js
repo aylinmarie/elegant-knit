@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
-import { Pagination } from '@mui/material';
+import { Pagination, Stack } from '@mui/material';
 
 import { capitalize } from './utility/capitalize';
 import { sortAlphabetically } from './utility/sortAlphabetically';
@@ -97,39 +97,40 @@ const Gallery = () => {
       </div>
       <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
       
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
-      >
-        <Masonry gutter="24px">
-          {_DATA.currentData().map(item => {
-            return item.type === 'pattern' && (
-              <a key={item.favorited.name} 
-                href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
-                target="_blank" 
-                rel="noreferrer"
-                className={stylesheet.link}>
-                <div className={stylesheet.card}>
-                  <img src={item.favorited.first_photo.medium2_url} alt=""/>
-                  <div>
-                    <p>{item.favorited.name}</p>
-                    <p className={stylesheet.designer}>
-                      <span className="visuallyHidden">Designer: </span>
-                      {item.favorited.designer.name}
-                    </p>
+      <Stack spacing={6}>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+        >
+          <Masonry gutter="24px">
+            {_DATA.currentData().map(item => {
+              return item.type === 'pattern' && (
+                <a key={item.favorited.name} 
+                  href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
+                  target="_blank" 
+                  rel="noreferrer"
+                  className={stylesheet.link}>
+                  <div className={stylesheet.card}>
+                    <img src={item.favorited.first_photo.medium2_url} alt=""/>
+                    <div>
+                      <p>{item.favorited.name}</p>
+                      <p className={stylesheet.designer}>
+                        <span className="visuallyHidden">Designer: </span>
+                        {item.favorited.designer.name}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            )
-          })}
-        </Masonry>
-      </ResponsiveMasonry>
-
-      <Pagination 
-        count={count} 
-        variant="outlined"
-        onChange={handleChange}
-        page={page} />
-
+                </a>
+              )
+            })}
+          </Masonry>
+        </ResponsiveMasonry>
+        <Pagination 
+          className={stylesheet.pagination}
+          count={count} 
+          variant="outlined"
+          onChange={handleChange}
+          page={page} />
+      </Stack>
     </div>
   )
 }
