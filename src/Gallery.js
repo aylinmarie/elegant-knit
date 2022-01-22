@@ -7,7 +7,7 @@ import { capitalize } from './utility/capitalize';
 import { sortAlphabetically } from './utility/sortAlphabetically';
 import stylesheet from './Gallery.module.css';
 import Checkbox from './components/Checkbox';
-import usePagination from './components/Pagination';
+import usePagination from './components/Pagination/usePagination';
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
