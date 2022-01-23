@@ -4,7 +4,7 @@ Collection of minimal and timeless knit patterns for women. This is a personal p
 
 ## What I'm using
 - [Ravelry API](https://www.ravelry.com/groups/ravelry-api)
-- [Material UI](https://mui.com/
+- [Material UI](https://mui.com/)
 - [Create React App](https://create-react-app.dev/)
 
 ![Elegant Knit homepage](./src/images/preview_ek.png)
