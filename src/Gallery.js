@@ -15,8 +15,6 @@ const username = "aylinmarie";
 const base = "https://api.ravelry.com";
 const url = base + "/people/" + username + "/favorites/list.json";
 
-console.log(usernameKey, passwordKey, process.env);
-
 const Gallery = () => {
   const [items, setItems] = useState([]);
   const [filterBy, setFilterBy] = useState([]);
