@@ -1,24 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Lora, serif',
+    fontFamily: "Lora, serif",
   },
 });
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-        <App />
+      <App />
     </React.StrictMode>
   </ThemeProvider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
