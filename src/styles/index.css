@@ -2,13 +2,14 @@
 @import './reset.css';
 
 :root {
-  --clay: #995F49;
-  --stone: #F5EFED;
-  --sand: #CCAFA4;
-  --graphite: #242723;
   --base-unit: 4px;
 
-  --font-small: 12px;
+  --snow: #EFEDEE;
+  --wheat: #9a5815;
+  --forest: #272E22;
+  --charcoal: #211C16;
+
+  --font-small: 13px;
 
   --spacing-1: calc(var(--base-unit) * 4);
   --spacing-2: calc(var(--base-unit) * 8); 
@@ -23,8 +24,8 @@ body {
   font-size: var(--spacing-1);
 
   letter-spacing: .5px;
-  color: var(--graphite);
-  background-color: var(--stone);
+  color: var(--charcoal);
+  background-color: var(--snow);
 }
 
 h1,
@@ -47,6 +48,7 @@ h2 {
 
 h3 {
   font-size: 1.8rem;
+  color: var(--wheat)
 }
 
 p {
@@ -55,7 +57,7 @@ p {
 }
 
 a {
-  color: var(--clay);
+  color: var(--wheat);
 }
 
 img {

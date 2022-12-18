@@ -29,7 +29,7 @@
   max-width: 1300px;
   margin: auto;
   padding: 1rem;
-  border-top: 1px solid var(--sand);
+  border-top: 1px solid var(--wheat);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

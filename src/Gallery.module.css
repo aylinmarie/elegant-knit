@@ -18,7 +18,7 @@
   padding: var(--spacing-1);
   text-align: center;
   position: relative;
-  border: 1px solid var(--clay);
+  border: 1px solid var(--wheat);
   outline: 2px solid transparent;
   outline-offset: 1px;
   transition: outline-color 0.2s ease;
@@ -27,7 +27,7 @@
   
 .card:focus,
 .card:hover {
-  outline-color: var(--clay);
+  outline-color: var(--wheat);
 }
   
 .card:hover img {
@@ -48,7 +48,7 @@
 
 .designer {
   font-size: var(--font-small);
-  color: var(--graphite);
+  color: var(--charcoal);
   margin-top: 8px;
 }
 
