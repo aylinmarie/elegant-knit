@@ -152,7 +152,7 @@ const Gallery = () => {
                         src={item.favorited.first_photo.medium2_url}
                         alt=""
                       />
-                      <div>
+                      <div className={stylesheet.copy}>
                         <p>{item.favorited.name}</p>
                         <p className={stylesheet.designer}>
                           <span className="visuallyHidden">Designer: </span>

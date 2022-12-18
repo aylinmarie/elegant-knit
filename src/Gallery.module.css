@@ -42,9 +42,14 @@
   text-decoration: none;
 }
 
+.copy {
+  padding: 8px;
+}
+
 .designer {
-  font-size: 13px;
+  font-size: var(--font-small);
   color: var(--graphite);
+  margin-top: 8px;
 }
 
 /* Filter */

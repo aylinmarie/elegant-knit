@@ -29,11 +29,11 @@ const App = () => {
   ];
 
   return (
-    <>
+    <div className={stylesheet.app}>
       <header className={stylesheet.header}>
         <h1>Elegant Knits</h1>
       </header>
-      <div className={stylesheet.app}>
+      <div className={stylesheet.content}>
         <main>
           <div className={stylesheet.intro}>
             <h2>
@@ -71,7 +71,7 @@ const App = () => {
           </span>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 
