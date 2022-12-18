@@ -52,8 +52,7 @@
   margin-bottom: calc(var(--base-unit) * 5);
 }
 .filter legend {
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: 500;
   margin-bottom: calc(var(--base-unit) * 5);
 }
 .filter label {

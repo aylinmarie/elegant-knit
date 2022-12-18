@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import './reset.css';
 
 :root {
@@ -10,12 +10,13 @@
 }
 
 body {
-  font-family: 'Lora', serif;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
   font-style: normal;
   font-size: calc(var(--base-unit) * 4);
-  letter-spacing: .035em;
-  line-height: 1.7em;
+
+  letter-spacing: .5px;
+  line-height: 1.2rem;
   color: var(--graphite);
   background-color: var(--stone);
 }
@@ -23,12 +24,26 @@ body {
 h1,
 h2,
 h3 {
-  font-family: 'Lora', serif;
-  letter-spacing: 0em;
-  text-transform: none;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: calc(var(--base-unit) * 8);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.8rem;
 }
 
 p {
+  margin: auto;
   max-width: 70ch;
 }
 
@@ -40,18 +55,14 @@ img {
   width: 100%;
 }
 
-header {
-  padding: calc(var(--base-unit) * 8);
-  margin-bottom: calc(var(--base-unit) * 5);
-  text-align: center;
-}
-
-header h1 {
-  max-width: 1300px;
-  margin: auto;
-}
 
 /* Utility Classes */
 .visuallyHidden {
   display: none;
+}
+
+
+/* MUI Overrides - Remove when switching component library */
+span {
+    font-weight: 300 !important;
 }

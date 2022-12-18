@@ -30,15 +30,16 @@ const App = () => {
 
   return (
     <>
-      <header>
+      <header className={stylesheet.header}>
         <h1>Elegant Knits</h1>
       </header>
       <div className={stylesheet.app}>
         <main>
-          <div>
-            <p className={stylesheet.intro}>
-              Collection of minimal and timeless knitting patterns.
-            </p>
+          <div className={stylesheet.intro}>
+            <h2>
+            Modern needlework patterns
+            </h2>
+            <p>Collection of minimal knit and crochet patterns.</p>
           </div>
           <Gallery />
         </main>

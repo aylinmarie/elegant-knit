@@ -9,6 +9,7 @@ import { sortAlphabetically } from "./utility/sortAlphabetically";
 import stylesheet from "./Gallery.module.css";
 import usePagination from "./components/Pagination/usePagination";
 
+// Set this in local .env file
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
 const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
 const username = "aylinmarie";
@@ -91,6 +92,7 @@ const Gallery = () => {
     items && (
       <div className={stylesheet.wrapper}>
         <div>
+          <h3>Patterns by Type</h3>
           <fieldset className={stylesheet.filter}>
             <legend>Creators</legend>
             {CREATORS.map((creator) => {

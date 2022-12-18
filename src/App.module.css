@@ -1,14 +1,25 @@
 @import './styles/index.css';
 
 .app {
-  max-width: 1300px;
-  margin: auto;
+  max-width: 1400px;
   padding: 0 calc(var(--base-unit) * 10);
 }
 
+.header {
+  max-width: 1400px;
+  padding: calc(var(--base-unit) * 8);
+  margin-bottom: calc(var(--base-unit) * 5);
+  border-bottom: 1px solid;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
 .intro {
-  margin: auto;
   text-align: center;
+  margin: 100px 0;
 }
 
 .footer {
