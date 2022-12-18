@@ -2,9 +2,9 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: calc(var(--base-unit) * 60) 1fr;
-  gap: calc(var(--base-unit) * 7);
-  margin: calc(var(--base-unit) * 20) 0;
+  grid-template-columns: 240px 1fr;
+  gap: var(--spacing-2);
+  margin: var(--spacing-3) 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -15,7 +15,7 @@
 
 /* Cards */  
 .card {
-  padding: calc(var(--base-unit) * 3);
+  padding: var(--spacing-1);
   text-align: center;
   position: relative;
   border: 1px solid var(--clay);
@@ -54,11 +54,11 @@
 
 /* Filter */
 .filter {
-  margin-bottom: calc(var(--base-unit) * 5);
+  margin-bottom: var(--spacing-2);
 }
 .filter legend {
   font-weight: 500;
-  margin-bottom: calc(var(--base-unit) * 5);
+  margin-bottom: var(--spacing-2);
 }
 .filter label {
   display: block;

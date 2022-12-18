@@ -6,7 +6,7 @@
 }
 
 .header {
-  padding: calc(var(--base-unit) * 8);
+  padding: var(--spacing-2);
   margin-bottom: calc(var(--base-unit) * 5);
   border-bottom: 1px solid;
 }
@@ -17,7 +17,7 @@
 }
 
 .content {
-  padding: 0 calc(var(--base-unit) * 8);
+  padding: 0 var(--spacing-2);
 }
 
 .intro {
@@ -40,6 +40,6 @@
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    gap: calc(var(--base-unit) * 5);
+    gap: var(--spacing-1);
     padding: 0;
 }

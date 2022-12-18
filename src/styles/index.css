@@ -8,7 +8,11 @@
   --graphite: #242723;
   --base-unit: 4px;
 
-  --font-small: 13px;
+  --font-small: 12px;
+
+  --spacing-1: calc(var(--base-unit) * 4);
+  --spacing-2: calc(var(--base-unit) * 8); 
+  --spacing-3: calc(var(--base-unit) * 16); 
 
 }
 
@@ -16,7 +20,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: calc(var(--base-unit) * 4);
+  font-size: var(--spacing-1);
 
   letter-spacing: .5px;
   color: var(--graphite);
@@ -29,7 +33,7 @@ h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   letter-spacing: -1px;
-  margin-bottom: calc(var(--base-unit) * 8);
+  margin-bottom: var(--spacing-2);
   line-height: auto;
 }
 

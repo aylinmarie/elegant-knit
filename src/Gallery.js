@@ -156,7 +156,7 @@ const Gallery = () => {
                         <p>{item.favorited.name}</p>
                         <p className={stylesheet.designer}>
                           <span className="visuallyHidden">Designer: </span>
-                          {item.favorited.designer.name}
+                          {item.favorited.designer.name.toUpperCase()}
                         </p>
                       </div>
                     </div>
