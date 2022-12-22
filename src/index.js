@@ -7,7 +7,6 @@ import reportWebVitals from "./reportWebVitals";
 import { removeSpace } from "./utility/removeSpace";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from '@mui/material/CssBaseline';
 
 
 const primaryColor = removeSpace(getComputedStyle(document.documentElement)
@@ -35,7 +34,6 @@ const theme = createTheme({
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-    <CssBaseline />
       <App />
     </React.StrictMode>
   </ThemeProvider>,
