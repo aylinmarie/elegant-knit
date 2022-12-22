@@ -27,7 +27,7 @@ const Gallery = () => {
   if (items) {
     DESIGNERS.push(items.map((item) => item.favorited.designer.name));
   }
-  const CREATORS = sortAlphabetically([...new Set(DESIGNERS[0])]);
+  // const CREATORS = sortAlphabetically([...new Set(DESIGNERS[0])]);
 
   // Set filter for types
   if (items) {
@@ -168,9 +168,9 @@ const Gallery = () => {
           <Pagination
             className={stylesheet.pagination}
             count={count}
-            variant="outlined"
             onChange={handleChange}
             page={page}
+            color="primary"
           />
         </Stack>
       </div>
