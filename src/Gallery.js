@@ -93,7 +93,7 @@ const Gallery = () => {
       <div className={stylesheet.wrapper}>
         <div>
           <h3>Patterns by Type</h3>
-          <fieldset className={stylesheet.filter}>
+          {/* <fieldset className={stylesheet.filter}>
             <legend>Creators</legend>
             {CREATORS.map((creator) => {
               return (
@@ -111,9 +111,9 @@ const Gallery = () => {
                 />
               );
             })}
-          </fieldset>
+          </fieldset> */}
           <fieldset className={stylesheet.filter}>
-            <legend>Type</legend>
+            <legend className="visuallyHidden">Type</legend>
             {TYPES.map((type) => {
               return (
                 type && (
