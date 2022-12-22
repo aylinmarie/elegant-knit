@@ -133,10 +133,10 @@ const Gallery = () => {
             })}
           </fieldset>
         </div>
+        
         <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
-
         <Stack spacing={6}>
-          <Masonry columns={3} spacing={2}>
+          <Masonry columns={{ sm: 1, md: 2, lg: 3}} spacing={{ sm: 1, md: 2, lg: 3 }}>
             {_DATA.currentData().map((item) => {
               return (
                 item.type === "pattern" && (
@@ -153,7 +153,7 @@ const Gallery = () => {
                         alt=""
                       />
                       <div className={stylesheet.copy}>
-                        <p>{item.favorited.name}</p>
+                        <p>{capitalize(item.favorited.name)}</p>
                         <p className={stylesheet.designer}>
                           <span className="visuallyHidden">Designer: </span>
                           {item.favorited.designer.name.toUpperCase()}
