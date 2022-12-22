@@ -13,8 +13,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 const primaryColor = removeSpace(getComputedStyle(document.documentElement)
 .getPropertyValue('--wheat'));
 
-console.log(primaryColor)
-
 // Need to set typography thry MUI.
 const theme = createTheme({
   typography: {

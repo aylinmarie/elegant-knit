@@ -1,0 +1,15 @@
+:root {
+    --base-unit: 4px;
+  
+    --snow: #EFEDEE;
+    --wheat: #9a5815;
+    --forest: #272E22;
+    --charcoal: #211C16;
+  
+    --font-small: 13px;
+  
+    --spacing-1: calc(var(--base-unit) * 4);
+    --spacing-2: calc(var(--base-unit) * 8); 
+    --spacing-3: calc(var(--base-unit) * 16); 
+  
+  }

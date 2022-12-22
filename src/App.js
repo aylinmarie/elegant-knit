@@ -31,14 +31,14 @@ const App = () => {
   return (
     <div className={stylesheet.app}>
       <header className={stylesheet.header}>
-        <h1>Elegant Knits</h1>
+        <h2>Elegant Knits</h2>
       </header>
       <div className={stylesheet.content}>
         <main>
           <div className={stylesheet.intro}>
-            <h2>
+            <h1>
             Modern needlework patterns
-            </h2>
+            </h1>
             <p>Collection of minimal knit and crochet patterns.</p>
           </div>
           <Gallery />
