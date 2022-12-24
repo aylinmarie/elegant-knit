@@ -48,6 +48,7 @@ const App = () => {
         </main>
       </div>
       <footer className={stylesheet.footer}>
+        <div className={stylesheet.footerWrapper}>
           <ul>
             {LINKS.map((link) => {
               return (
@@ -73,6 +74,7 @@ const App = () => {
               Ravelry API
             </a>
           </span>
+        </div>
         </footer>
     </div>
   );

@@ -1,10 +1,5 @@
 @import './styles/index.css';
 
-.app {
-  max-width: 1400px;
-  margin: auto;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -16,11 +11,14 @@
 }
 
 .header h2 {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: auto;
   font-size: 1.5rem;
   margin-bottom: 0;
 }
 
-.header h2 a{
+.header h2 a {
   text-decoration: none;
 }
 
@@ -32,16 +30,21 @@
 }
 
 .content {
+  max-width: var(--max-width);
+  margin: auto;
   padding: 0 var(--spacing-2);
 }
 
 .footer {
-  max-width: 1400px;
-  margin: auto;
   padding: var(--spacing-2);
 
   background-color: white;
+}
 
+.footerWrapper {
+  max-width: var(--max-width);
+  margin: auto;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -49,9 +52,9 @@
 }
 
 .footer ul {
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-1);
-    padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+  padding: 0;
 }

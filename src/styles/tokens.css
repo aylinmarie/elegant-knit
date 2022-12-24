@@ -1,5 +1,6 @@
 :root {
     --base-unit: 4px;
+    --max-width: 1400px;
   
     --snow: #EFEDEE;
     --wheat: #9a5815;
