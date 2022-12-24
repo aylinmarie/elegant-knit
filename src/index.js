@@ -1,7 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 import "./styles/index.css";
 import App from "./App";
+import Supply from "./Supply";
+import Gallery from "./Gallery";
+
 import reportWebVitals from "./reportWebVitals";
 
 import { removeSpace } from "./utility/removeSpace";
@@ -31,10 +40,27 @@ const theme = createTheme({
   }
 });
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+    children: [
+      {
+        path: "supplies",
+        element: <Supply />,
+      },
+      {
+        path: "/",
+        element: <Gallery />,
+      },
+    ],
+  },
+]);
+
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-      <App />
+      <RouterProvider router={router}/>
     </React.StrictMode>
   </ThemeProvider>,
   document.getElementById("root")

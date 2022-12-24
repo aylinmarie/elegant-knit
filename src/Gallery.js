@@ -8,6 +8,8 @@ import { capitalize } from "./utility/capitalize";
 import { sortAlphabetically } from "./utility/sortAlphabetically";
 import stylesheet from "./Gallery.module.css";
 import usePagination from "./components/Pagination/usePagination";
+import Hero from "./components/Hero";
+
 
 // Set this in local .env file
 const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
@@ -90,6 +92,11 @@ const Gallery = () => {
   // Return patterns
   return (
     items && (
+      <>
+      <Hero title="Modern needlework patterns">
+        Collection of minimal knit and crochet patterns.
+      </Hero>
+
       <div className={stylesheet.wrapper}>
         <div>
           <h3>Patterns by Type</h3>
@@ -136,7 +143,7 @@ const Gallery = () => {
         
         <h2 className="visuallyHidden">Gallery of Knit Patterns</h2>
         <Stack spacing={6}>
-          <Masonry columns={{ sm: 1, md: 2, lg: 3}} spacing={{ sm: 1, md: 2, lg: 3 }}>
+          <Masonry columns={{ xs: 1, sm: 1, md: 2, lg: 3}} spacing={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
             {_DATA.currentData().map((item) => {
               return (
                 item.type === "pattern" && (
@@ -174,6 +181,8 @@ const Gallery = () => {
           />
         </Stack>
       </div>
+      </>
+
     )
   );
 };

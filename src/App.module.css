@@ -6,9 +6,13 @@
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   padding: var(--spacing-2);
-  margin-bottom: calc(var(--base-unit) * 5);
-  border-bottom: 1px solid;
+
+  background-color: white;
 }
 
 .header h2 {
@@ -16,20 +20,28 @@
   margin-bottom: 0;
 }
 
+.header h2 a{
+  text-decoration: none;
+}
+
+.nav ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  gap: var(--spacing-2);
+}
+
 .content {
   padding: 0 var(--spacing-2);
 }
 
-.intro {
-  text-align: center;
-  margin: 100px 0;
-}
-
 .footer {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: auto;
-  padding: 1rem;
-  border-top: 1px solid var(--wheat);
+  padding: var(--spacing-2);
+
+  background-color: white;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

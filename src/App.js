@@ -1,10 +1,12 @@
 import React from "react";
 import stylesheet from "./App.module.css";
-import Gallery from "./Gallery";
 import ReactGA from "react-ga";
+
+import { Outlet, Link } from "react-router-dom";
 
 const App = () => {
   const TRACKING_ID = "UA-66263407-2";
+
   ReactGA.initialize(TRACKING_ID);
   ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -28,22 +30,24 @@ const App = () => {
     },
   ];
 
+
   return (
     <div className={stylesheet.app}>
       <header className={stylesheet.header}>
-        <h2>Elegant Knits</h2>
+          <h2><Link to={`/`}>Elegant Knits</Link></h2>
+          {/* <nav className={stylesheet.nav}>
+              <ul>
+              <li><Link to={`supplies`}>About</Link></li>
+              <li><Link to={`supplies`}>Supplies</Link></li>
+              </ul>
+          </nav> */}
       </header>
       <div className={stylesheet.content}>
         <main>
-          <div className={stylesheet.intro}>
-            <h1>
-            Modern needlework patterns
-            </h1>
-            <p>Collection of minimal knit and crochet patterns.</p>
-          </div>
-          <Gallery />
+          <Outlet />
         </main>
-        <footer className={stylesheet.footer}>
+      </div>
+      <footer className={stylesheet.footer}>
           <ul>
             {LINKS.map((link) => {
               return (
@@ -70,7 +74,6 @@ const App = () => {
             </a>
           </span>
         </footer>
-      </div>
     </div>
   );
 };
