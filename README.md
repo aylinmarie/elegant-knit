@@ -7,4 +7,4 @@ Collection of minimal and timeless knit patterns for women. This is a personal p
 - [Material UI](https://mui.com/)
 - [Create React App](https://create-react-app.dev/)
 
-![Elegant Knit homepage](./src/images/preview_ek.png)
+![Elegant Knit homepage](./src/images/EK_preview.png)
