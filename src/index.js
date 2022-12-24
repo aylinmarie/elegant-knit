@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
 } from "react-router-dom";
 import "./styles/index.css";
 import App from "./App";
