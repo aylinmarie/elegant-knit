@@ -27,13 +27,13 @@ const Gallery = () => {
 
   // Set filter for creators
   if (items) {
-    DESIGNERS.push(items.map((item) => item.favorited.designer.name));
+    DESIGNERS.push(items.map((item) => item.favorited?.designer?.name).filter(Boolean));
   }
   // const CREATORS = sortAlphabetically([...new Set(DESIGNERS[0])]);
 
   // Set filter for types
   if (items) {
-    TYPE.push(items.map((item) => item.tag_list));
+    TYPE.push(items.map((item) => item.tag_list).filter(Boolean));
   }
   const TYPES = sortAlphabetically([...new Set(TYPE[0])]);
 
@@ -146,7 +146,7 @@ const Gallery = () => {
           <Masonry columns={{ xs: 1, sm: 1, md: 2, lg: 3}} spacing={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
             {_DATA.currentData().map((item) => {
               return (
-                item.type === "pattern" && (
+                item.type === "pattern" && item.favorited && item.favorited.designer && (
                   <a
                     key={item.favorited.name}
                     href={`https://www.ravelry.com/patterns/library/${item.favorited.permalink}`}
@@ -156,14 +156,14 @@ const Gallery = () => {
                   >
                     <div className={stylesheet.card}>
                       <img
-                        src={item.favorited.first_photo.medium2_url}
+                        src={item.favorited.first_photo?.medium2_url}
                         alt=""
                       />
                       <div className={stylesheet.copy}>
                         <p>{capitalize(item.favorited.name)}</p>
                         <p className={stylesheet.designer}>
                           <span className="visuallyHidden">Designer: </span>
-                          {item.favorited.designer.name.toUpperCase()}
+                          {item.favorited.designer.name?.toUpperCase()}
                         </p>
                       </div>
                     </div>
