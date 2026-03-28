@@ -11,7 +11,7 @@ const App = () => {
   ReactGA.initialize(TRACKING_ID);
   ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search });
 
-  if (process.env.NODE_ENV !== "production") {
+  if (import.meta.env.MODE !== "production") {
     console.warn("DEV MODE - Working in dev mode.");
   }
 

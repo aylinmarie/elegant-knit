@@ -12,8 +12,8 @@ import Hero from "./components/Hero";
 
 
 // Set this in local .env file
-const usernameKey = process.env.REACT_APP_RAVELRY_USERNAME_KEY;
-const passwordKey = process.env.REACT_APP_RAVELRY_PASSWORD_KEY;
+const usernameKey = import.meta.env.VITE_RAVELRY_USERNAME_KEY;
+const passwordKey = import.meta.env.VITE_RAVELRY_PASSWORD_KEY;
 const username = "aylinmarie";
 const base = "https://api.ravelry.com";
 const url = base + "/people/" + username + "/favorites/list.json";
