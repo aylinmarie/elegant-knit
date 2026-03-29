@@ -1,17 +1,17 @@
 import React from "react";
 import stylesheet from "./App.module.css";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import { Outlet, Link } from "react-router-dom";
 
 const App = () => {
-  const TRACKING_ID = "UA-66263407-2";
+  // Replace with your GA4 measurement ID (format: G-XXXXXXXXXX)
+  const TRACKING_ID = "G-XXXXXXXXXX";
 
   ReactGA.initialize(TRACKING_ID);
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search });
 
-  if (process.env.NODE_ENV !== "production") {
-    window["ga-disable-GA_MEASUREMENT_ID"] = true;
+  if (import.meta.env.MODE !== "production") {
     console.warn("DEV MODE - Working in dev mode.");
   }
 
