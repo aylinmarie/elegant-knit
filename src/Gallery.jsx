@@ -86,7 +86,7 @@ const Gallery = () => {
 
   // If data cannot be retrieved, return error message
   if (error) {
-    return error;
+    return <p>{error.message}</p>;
   }
 
   // Return patterns
