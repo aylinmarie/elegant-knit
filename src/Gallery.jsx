@@ -65,12 +65,7 @@ const Gallery = () => {
 
   // Fetch data
   useEffect(() => {
-    axios(url, {
-      auth: {
-        username: usernameKey,
-        password: passwordKey,
-      },
-    })
+    axios(url)
       .then((response, error) => {
         setItems(response.data.favorites);
       })
