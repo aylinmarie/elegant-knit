@@ -46,7 +46,8 @@ const Gallery = () => {
     filterBy.length > 0
       ? items.filter(
           (item) =>
-            filterBy.includes(item.favorited.designer.name) ||
+            // Use optional chaining because non-pattern items (forumpost, designer) lack favorited.designer
+            filterBy.includes(item.favorited?.designer?.name) ||
             filterBy.includes(item.tag_list)
         )
       : items;

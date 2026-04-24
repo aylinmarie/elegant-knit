@@ -13,7 +13,24 @@
   }
 }
 
-/* Cards */  
+/* Cards */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .link {
+    animation: fadeIn 0.25s ease both;
+  }
+}
+
 .card {
   padding: var(--spacing-1);
   text-align: center;
