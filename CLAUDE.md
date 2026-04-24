@@ -26,8 +26,6 @@ React 18 SPA built with Vite, deployed on Vercel. MUI v5 handles UI components a
 |---|---|---|
 | `RAVELRY_USERNAME_KEY` | `api/ravelry.js` (server) | No `VITE_` prefix — server-side only |
 | `RAVELRY_PASSWORD_KEY` | `api/ravelry.js` (server) | No `VITE_` prefix — server-side only |
-| `VITE_CONTENTFUL_SPACE_ID` | `src/Supply.jsx` (client) | Baked into bundle at build time |
-| `VITE_CONTENTFUL_ACCESS_TOKEN` | `src/Supply.jsx` (client) | Baked into bundle at build time |
 
 ## Project Instructions
 
