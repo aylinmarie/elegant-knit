@@ -20,14 +20,6 @@ const App = () => {
       name: "Aylin Marie",
       url: "https://www.aylinmarie.co",
     },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/aylin_marie",
-    },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/aylinmcg",
-    },
   ];
 
 
