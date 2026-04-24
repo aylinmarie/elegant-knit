@@ -17,14 +17,7 @@ const Gallery = () => {
   const [items, setItems] = useState([]);
   const [filterBy, setFilterBy] = useState([]);
   const [error, setError] = useState(null);
-  let DESIGNERS = [];
   let TYPE = [];
-
-  // Set filter for creators
-  if (items) {
-    DESIGNERS.push(items.map((item) => item.favorited?.designer?.name).filter(Boolean));
-  }
-  // const CREATORS = sortAlphabetically([...new Set(DESIGNERS[0])]);
 
   // Set filter for types
   if (items) {
