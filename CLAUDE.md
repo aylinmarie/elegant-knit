@@ -18,12 +18,6 @@ React 18 SPA built with Vite, deployed on Vercel. MUI v5 handles UI components a
 
 **Routing** (`src/index.jsx`): React Router v6 with a nested layout. `App.jsx` is the shell (header, footer, `<Outlet>`). Two child routes: `/` → `Gallery`, `/supplies` → `Supply`.
 
-**Data fetching:**
-- `Gallery.jsx` calls `/api/ravelry` (a Vercel serverless function at `api/ravelry.js`) which proxies the Ravelry API using Basic Auth server-side. Credentials are kept server-side as `RAVELRY_USERNAME_KEY` / `RAVELRY_PASSWORD_KEY` (no `VITE_` prefix).
-- `Supply.jsx` calls the Contentful GraphQL API directly from the browser using `VITE_CONTENTFUL_SPACE_ID` and `VITE_CONTENTFUL_ACCESS_TOKEN`.
-
-**Why the proxy exists:** Ravelry's API blocks direct browser requests (CORS). The Vercel function at `api/ravelry.js` makes the request server-side to avoid this.
-
 **Theme:** MUI `ThemeProvider` in `src/index.jsx` reads `--wheat` CSS variable to set the primary color.
 
 ## Environment Variables
