@@ -11,12 +11,7 @@ import usePagination from "./components/Pagination/usePagination";
 import Hero from "./components/Hero";
 
 
-// Set this in local .env file
-const usernameKey = import.meta.env.VITE_RAVELRY_USERNAME_KEY;
-const passwordKey = import.meta.env.VITE_RAVELRY_PASSWORD_KEY;
-const username = "aylinmarie";
-const base = "https://api.ravelry.com";
-const url = base + "/people/" + username + "/favorites/list.json";
+const url = "/api/ravelry";
 
 const Gallery = () => {
   const [items, setItems] = useState([]);
@@ -70,12 +65,7 @@ const Gallery = () => {
 
   // Fetch data
   useEffect(() => {
-    axios(url, {
-      auth: {
-        username: usernameKey,
-        password: passwordKey,
-      },
-    })
+    axios(url)
       .then((response, error) => {
         setItems(response.data.favorites);
       })

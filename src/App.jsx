@@ -35,12 +35,6 @@ const App = () => {
     <div className={stylesheet.app}>
       <header className={stylesheet.header}>
           <h2><Link to={`/`}>Elegant Knits</Link></h2>
-          {/* <nav className={stylesheet.nav}>
-              <ul>
-              <li><Link to={`supplies`}>About</Link></li>
-              <li><Link to={`supplies`}>Supplies</Link></li>
-              </ul>
-          </nav> */}
       </header>
       <div className={stylesheet.content}>
         <main>

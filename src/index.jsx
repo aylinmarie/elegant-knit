@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import "./styles/index.css";
 import App from "./App";
-import Supply from "./Supply";
 import Gallery from "./Gallery";
 
 import reportWebVitals from "./reportWebVitals";
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <App/>,
     children: [
-      {
-        path: "supplies",
-        element: <Supply />,
-      },
       {
         path: "/",
         element: <Gallery />,
